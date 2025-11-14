@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About CozyCup Café</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f9f4ef;
+      color: #4b2e05;
+    }
+
+    header {
+      background-color: #452a0c;
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+      position: relative;
+      border-bottom: 5px solid #a57b50;
+    }
+
+    header img {
+      position: absolute;
+      left: 30px;
+      top: 15px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    header img:hover {
+      transform: scale(1.1);
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+
+    /* Make the tagline white */
+    header p {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-top: 5px;
+      letter-spacing: 0.5px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .intro img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-top: 15px;
+    }
+
+    h2 {
+      color: #8b5c2e;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.7;
+      text-align: justify;
+      color: #5b4636;
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: #b08968;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #c3a27f;
+      color: white;
+      margin-top: 40px;
+      border-top: 4px solid #a57b50;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://i.postimg.cc/SNrHSZ3f/coffeelogo.jpg" alt="CozyCup Café Logo" onclick="goHome()">
+    <h1>About CozyCup Café</h1>
+    <p>Where Every Sip Feels Like Home</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Welcome to CozyCup Café</h2>
+      <p>
+        Nestled in the heart of the city, <span class="highlight">CozyCup Café</span> is your warm hideaway from the busy world. 
+        Established in 2025, our café was created for coffee lovers who crave comfort, connection, and a perfectly brewed cup of coffee.
+      </p>
+      <img src="https://i.postimg.cc/QNpB5HYb/background-image.jpg" alt="Inside CozyCup Café">
+    </section>
+
+    <section>
+      <h2>Our Story</h2>
+      <p>
+        CozyCup began as a small dream shared by a group of friends who loved two things: good coffee and good company. 
+        What started as a home-based setup has grown into a community hub where people gather to study, work, chat, or simply enjoy a peaceful afternoon. 
+        Every cup we serve is made with love, care, and locally sourced beans that support Filipino coffee farmers.
+      </p>
+    </section>
+
+    <section>
+      <h2>Our Mission</h2>
+      <p>
+        Our mission is to <span class="highlight">bring warmth and comfort to every customer</span> who walks through our doors. 
+        Whether you’re starting your day with a cappuccino or winding down with milk tea and pastries, CozyCup aims to create a relaxing atmosphere 
+        where you can truly savor the moment.
+      </p>
+    </section>
+
+    <section>
+      <h2>Our Vision</h2>
+      <p>
+        We envision <span class="highlight">a community connected through coffee</span>—a place where stories are shared, ideas are brewed, and friendships are made. 
+        CozyCup Café strives to be the go-to destination for those seeking both comfort and quality in every sip.
+      </p>
+    </section>
+
+    <section>
+      <h2>Why Choose Us?</h2>
+      <p>
+        From the gentle aroma of our freshly ground beans to the soft jazz echoing through our café, 
+        every detail at CozyCup is designed to make you feel at home. 
+        We believe that <span class="highlight">great coffee isn’t just a drink—it’s an experience.</span>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>☕ CozyCup Café © 2025 | All Rights Reserved</p>
+    <p><a href="menu.html">View Our Menu</a> | <a href="contact.html">Contact Us</a></p>
+  </footer>
+
+  <script>
+    function goHome() {
+      window.location.href = "index.html"; // Replace with your homepage file name
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Cart | CozyCup Café</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #f6efe7;
+      color: #3e2f22;
+    }
+
+    header {
+      background-color: #452a0c;
+      color: #fff6e5;
+      text-align: center;
+      padding: 25px 10px;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header img {
+      position: absolute;
+      left: 25px;
+      top: 15px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    header img:hover {
+      transform: scale(1.1);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      letter-spacing: 1px;
+      color: #fff6e5;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #fffdf9;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #4b3425;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .cart-item img {
+      width: 70px;
+      height: 70px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .cart-info {
+      flex: 1;
+      margin-left: 15px;
+    }
+
+    .cart-info h4 {
+      color: #4b3425;
+    }
+
+    .cart-info p {
+      color: #ca965c;
+      font-weight: 600;
+    }
+
+    .quantity {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quantity button {
+      background: #ca965c;
+      color: white;
+      border: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .remove-btn {
+      background: none;
+      border: none;
+      color: #b22b2b;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 25px;
+      color: #4b3425;
+    }
+
+    .cart-actions {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .cart-actions button {
+      background: #8b6f47;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .cart-actions button:hover {
+      background: #ca965c;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://i.postimg.cc/SNrHSZ3f/coffeelogo.jpg" alt="CozyCup Café Logo" onclick="goHome()">
+    <h1>Your Cart</h1>
+  </header>
+
+  <main>
+    <h2>🛍 Items in Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="total" id="cart-total">Total: ₱0</div>
+    <div class="cart-actions">
+      <button onclick="checkout()">Checkout</button>
+      <button onclick="clearCart()">Clear Cart</button>
+    </div>
+  </main>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const cartDiv = document.getElementById("cart-items");
+    const totalDiv = document.getElementById("cart-total");
+
+    function goHome() {
+      window.location.href = "index.html";
+    }
+
+    function updateCart() {
+      cartDiv.innerHTML = "";
+      let total = 0;
+      cart.forEach((item, i) => {
+        total += item.price * item.qty;
+        const div = document.createElement("div");
+        div.classList.add("cart-item");
+        div.innerHTML = `
+          <img src="${item.img}" alt="${item.name}">
+          <div class="cart-info">
+            <h4>${item.name}</h4>
+            <p>₱${item.price}</p>
+          </div>
+          <div class="quantity">
+            <button onclick="decreaseQty(${i})">-</button>
+            <span>${item.qty}</span>
+            <button onclick="increaseQty(${i})">+</button>
+          </div>
+          <p>₱${item.price * item.qty}</p>
+          <button class="remove-btn" onclick="removeItem(${i})"><i class="fa fa-trash"></i></button>
+        `;
+        cartDiv.appendChild(div);
+      });
+      totalDiv.textContent = `Total: ₱${total}`;
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function increaseQty(i) {
+      cart[i].qty++;
+      updateCart();
+    }
+
+    function decreaseQty(i) {
+      if (cart[i].qty > 1) cart[i].qty--;
+      updateCart();
+    }
+
+    function removeItem(i) {
+      cart.splice(i, 1);
+      updateCart();
+    }
+
+    function clearCart() {
+      cart = [];
+      updateCart();
+    }
+
+    function checkout() {
+  if (cart.length === 0) {
+    alert("Your cart is empty!");
+    return;
+  }
+  const total = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
+  localStorage.setItem("total", total);
+  window.location.href = "payment.html";
+}
+
+
+    updateCart();
+  </script>
+</body>
+</html>
