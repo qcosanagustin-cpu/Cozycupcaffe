@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cozy Cup Café | Inquiry Form</title>
+
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93') center/cover no-repeat;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .form-container {
+    background: rgba(255, 248, 240, 0.95);
+    backdrop-filter: blur(6px);
+    padding: 40px 35px;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    max-width: 480px;
+    width: 100%;
+    animation: fadeIn 1.2s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    0% {opacity: 0; transform: translateY(30px);}
+    100% {opacity: 1; transform: translateY(0);}
+  }
+
+  .coffee-icon {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 80px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+
+  h1 {
+    text-align: center;
+    color: #4a2c16;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    text-align: center;
+    color: #6b4b3a;
+    margin-bottom: 25px;
+    font-size: 14px;
+  }
+
+  label {
+    display: block;
+    margin-top: 15px;
+    color: #3e2b23;
+    font-weight: 600;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    border: 1px solid #d3bfa3;
+    border-radius: 10px;
+    background-color: #fffaf6;
+    font-size: 14px;
+    transition: all 0.3s;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: #a57449;
+    outline: none;
+    box-shadow: 0 0 6px rgba(165, 116, 73, 0.5);
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  button {
+    width: 100%;
+    background: linear-gradient(135deg, #7b4b24, #b67445);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    background: linear-gradient(135deg, #5a3218, #a05d32);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 12px;
+    color: #7b5e57;
+  }
+</style>
+</head>
+
+<body>
+
+  <div class="form-container">
+    <!-- Replaced coffee icon with your uploaded logo -->
+   <img src="https://i.postimg.cc/SNrHSZ3f/coffeelogo.jpg" alt="Coffee Icon" class="coffee-icon">
+
+    <h1>Let's Brew a Connection!</h1>
+    <p>Have a question, feedback, or want to plan an event with us? Drop your message below — we’d love to hear from you.</p>
+
+    <form action="thank-you.html" method="POST">
+      <label for="name">☕ Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+      <label for="email">📧 Email Address</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="phone">📞 Contact Number</label>
+      <input type="tel" id="phone" name="phone" placeholder="09XX-XXX-XXXX">
+
+      <label for="subject">🎯 Inquiry Type</label>
+      <select id="subject" name="subject" required>
+        <option value="">Select an option</option>
+        <option value="menu">Menu or Product Question</option>
+        <option value="catering">Catering / Event Request</option>
+        <option value="partnership">Business Partnership</option>
+        <option value="feedback">Feedback & Suggestions</option>
+      </select>
+
+      <label for="message">📝 Your Message</label>
+      <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <footer>© 2025 The Cozy Cup Café — Brewing Joy, One Cup at a Time</footer>
+  </div>
+
+</body>
+</html>
